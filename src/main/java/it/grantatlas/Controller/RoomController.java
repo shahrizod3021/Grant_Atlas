@@ -10,6 +10,7 @@ import it.grantatlas.Repository.RoomsRepository;
 import it.grantatlas.Service.RoomsService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,12 @@ public class RoomController {
     public HttpEntity<?> getAll(){
         List<Rooms> all = roomsRepository.findAll();
         return ResponseEntity.ok(all);
+    }
+
+    @GetMapping("/{id}")
+    public HttpEntity<?> getOne(@PathVariable Integer id){
+        Rooms rooms = roomsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Xona topilmadi"));
+        return ResponseEntity.ok(rooms);
     }
 
 
