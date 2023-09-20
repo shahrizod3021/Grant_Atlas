@@ -92,9 +92,9 @@ public class RoomsService {
         rooms.setDescriptionEng(roomDto.descriptionEng().length() != 0 ? roomDto.descriptionEng() : rooms.getDescriptionEng());
         rooms.setDescriptionRu(roomDto.descriptionRu().length() != 0 ? roomDto.descriptionRu() : rooms.getDescriptionRu());
         rooms.setDescriptionTurk(roomDto.descriptionTurk().length() != 0 ? roomDto.descriptionTurk() : rooms.getDescriptionTurk());
-        rooms.setHowMuchRoom(roomDto.howMuch() != 0 ? roomDto.howMuch() : rooms.getHowMuchRoom());
-        rooms.setHowMany(roomDto.howMany() != 0 ? roomDto.howMany() : rooms.getHowMany());
-        rooms.setSize(roomDto.size() != 0 ? roomDto.size() : rooms.getSize());
+        rooms.setHowMuchRoom(roomDto.howMuch().length() != 0 ? roomDto.howMuch() : rooms.getHowMuchRoom());
+        rooms.setHowMany(roomDto.howMany().length() != 0 ? roomDto.howMany() : rooms.getHowMany());
+        rooms.setSize(roomDto.size().length() != 0 ? roomDto.size() : rooms.getSize());
         roomsRepository.save(rooms);
         return new ApiResponse("Ma'lumotlar taxrirlandi", true, 200);
     }

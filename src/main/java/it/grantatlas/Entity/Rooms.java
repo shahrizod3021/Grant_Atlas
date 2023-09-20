@@ -29,13 +29,13 @@ public class Rooms extends AbsNameEntity {
     private String descriptionTurk;
 
     @Column(name = "how_many")
-    private Double howMany;
+    private String howMany;
 
     @Column(name = "how_much")
-    private Double howMuchRoom;
+    private String howMuchRoom;
 
     @Column(name = "size")
-    private Double size;
+    private String size;
 
     @ManyToMany
     private List<RoomImg> roomImgList;

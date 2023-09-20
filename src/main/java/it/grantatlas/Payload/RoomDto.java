@@ -12,10 +12,10 @@ public record RoomDto(
         String descriptionEng,
         String descriptionTurk,
 
-        Double howMany,
+        String howMany,
 
-        Double howMuch,
+        String howMuch,
 
-        Double size
-        ) {
+        String size
+) {
 }
