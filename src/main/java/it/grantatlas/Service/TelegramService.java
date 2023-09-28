@@ -19,13 +19,13 @@ public class TelegramService {
         private final RestTemplate restTemplate;
 
 
-    public void sendMessage(String message) {
+    public void sendMessage(String message, String chatId) {
         String apiUrl = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String requestBody = "{\"chat_id\":\"" + GROUP_CHAT_ID + "\",\"text\":\"" + message + "\"}";
+        String requestBody = "{\"chat_id\":\"" + chatId + "\",\"text\":\"" + message + "\"}";
 
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
 

