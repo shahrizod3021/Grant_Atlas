@@ -36,7 +36,7 @@ public class RequestController {
         repository.save(request);
         String text = "🤵Kim tomondan: " + request.getName() + "\n📞Bog'lanish uchun: " + request.getPhoneNumber() + "\nFoydalanuvchi izohi: " + request.getPlusComment();
         mailSendService.sendToEmail("Sizda yangi so'rovnoma", text);
-        telegramService.sendMessage(text, "-4004603183");
+        telegramService.sendMessage(text, "-4051650649");
         return ResponseEntity.ok(new ApiResponse("Sizning so'rovingiz qabul qilindi", true, 200));
     }
 
